@@ -7,7 +7,8 @@
     - Install chocolatey from [here](https://chocolatey.org/install).
 
     - Then, ```choco install make```.
-- clone the repository
+- clone the repository:
+  - ```git clone https://github.com/Praveendwivedi/HackFit.git``` 
 - in terminal run following commands:
   - ```cd HackFit```
   - ```make```
