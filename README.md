@@ -3,7 +3,7 @@
 ## Setup Guidelines:
 
 - # Only for Windows:
-  - # in powershell
+  - # in powershell(run as #Administrator)
     - Install chocolatey from [here](https://chocolatey.org/install).
 
     - Then, ```choco install make```.
