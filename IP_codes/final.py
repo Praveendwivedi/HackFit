@@ -4,9 +4,10 @@ from PIL import  Image
 from numpy import asarray
 from matplotlib import pyplot as plt
 import numpy as np
+from playsound import playsound
 # cap = cv2.VideoCapture(0)
 # success, image = cap.read()
-image = Image.open('yoga_poses\pose_1_0.jpg')
+image = Image.open('yoga_poses\pose_3.jpg')
 image1 = asarray(image)
 res1=get_skeleton(image1)
 coord1=[]
@@ -19,9 +20,55 @@ for i in l1:
     coord1.append([x,y])
     xcoord1.append(x)
     ycoord1.append(y)
-print(coord1)
+# print(coord1)
 # plt.scatter(xcoord1,ycoord1,label="image1",color="r")
+cap = cv2.VideoCapture(0)
 
+while cap.isOpened():
+    success, image = cap.read()
+    if not success:
+      print("Ignoring empty camera frame.")
+      # If loading a video, use 'break' instead of 'continue'.
+      continue
+    results=get_skeleton(image)
+    if results.pose_landmarks is None:
+        continue
+    l2=list(results.pose_landmarks.landmark)
+    xcoord2=[]
+    ycoord2=[]
+    coord2=[]
+    for i in l2:
+        x=i.x
+        y=i.y
+        coord2.append([x,y])
+        xcoord2.append(x)
+        ycoord2.append(y)
+    primary = np.array(coord1)
+
+    secondary = np.array(coord2)
+
+    # Pad the data with ones, so that our transformation can do translations too
+    n = primary.shape[0]
+    pad = lambda x: np.hstack([x, np.ones((x.shape[0], 1))])
+    unpad = lambda x: x[:,:-1]
+    X = pad(primary)
+    Y = pad(secondary)
+
+    # Solve the least squares problem X * A = Y
+    # to find our transformation matrix A
+    A, res, rank, s = np.linalg.lstsq(X, Y)
+
+    transform = lambda x: unpad(np.dot(pad(x), A))
+    m=np.abs(secondary - transform(primary)).max()
+    if m<=0.09:
+        playsound('IP_codes\ceep.wav')
+    print("Max error:", m)
+    
+    if cv2.waitKey(5) & 0xFF == 27:
+      break
+
+
+'''
 image = Image.open('yoga_poses\pose_1_2.jpg')
 image2 = asarray(image)
 res2=get_skeleton(image2)
@@ -76,6 +123,7 @@ for i in transform(primary):
     ycoord1.append(i[1])
 plt.scatter(xcoord1,ycoord1,label="image2",color="b")
 plt.show()
+'''
 # print(res1.pose_landmarks.landmark,res2.pose_landmarks.landmark)
 '''
 while True:

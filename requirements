@@ -2,3 +2,4 @@ opencv-python
 numpy
 mediapipe
 Pillow
+playsound==1.2.2
