@@ -1,1 +1,2 @@
-print("hello")
+import IP_codes.main
+print("done")
