@@ -42,6 +42,6 @@ $ make
   ```
   - finally:
   ```
-  make run
+  $ make run
   ```  
 
