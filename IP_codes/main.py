@@ -9,12 +9,12 @@ from matplotlib import pyplot as plt
 import numpy as np
 from playsound import playsound
 
-print(os.getcwd())
+
 
 # Folder which contains all the images
 # from which video is to be generated
 # os.chdir("yoga_poses")
-folder = "C:\\Users\\Praveen\\Desktop\\HackFit\\yoga_poses\\Surya_Namaskar"
+folder = "yoga_poses\\Surya_Namaskar"
 
 
 def load_images_from_folder(folder):
