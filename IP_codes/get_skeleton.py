@@ -21,7 +21,7 @@ def get_skeleton(image):
             mp_pose.POSE_CONNECTIONS,
             landmark_drawing_spec=mp_drawing_styles.get_default_pose_landmarks_style())
         # Flip the image horizontally for a selfie-view display.
-        cv2.imshow('MediaPipe Pose', cv2.flip(image, 1)) 
+        # cv2.imshow('MediaPipe Pose', cv2.flip(image, 1)) 
         return results
 # For static images:
 IMAGE_FILES = []
@@ -54,12 +54,12 @@ with mp_pose.Pose(
     bg_image[:] = BG_COLOR
     annotated_image = np.where(condition, annotated_image, bg_image)
     # Draw pose landmarks on the image.
-    mp_drawing.draw_landmarks(
-        annotated_image,
-        results.pose_landmarks,
-        mp_pose.POSE_CONNECTIONS,
-        landmark_drawing_spec=mp_drawing_styles.get_default_pose_landmarks_style())
-    cv2.imwrite('/tmp/annotated_image' + str(idx) + '.png', annotated_image)
+    # mp_drawing.draw_landmarks(
+    #     annotated_image,
+    #     results.pose_landmarks,
+    #     mp_pose.POSE_CONNECTIONS,
+    #     landmark_drawing_spec=mp_drawing_styles.get_default_pose_landmarks_style())
+    # cv2.imwrite('/tmp/annotated_image' + str(idx) + '.png', annotated_image)
     # Plot pose world landmarks.
     mp_drawing.plot_landmarks(
         results.pose_world_landmarks, mp_pose.POSE_CONNECTIONS)
