@@ -14,18 +14,15 @@ The application helps in finding the correctness of a yoga posture by comparing 
 
 ## Setup:
 
-- # Only for Windows:
-  - # in powershell(run as #Administrator)
-    - Install chocolatey from [here](https://chocolatey.org/install)
-                   or run
-      ```Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))```
-
-    - Then, ```choco install make```.
-- clone the repository:
-  - ```git clone https://github.com/Praveendwivedi/HackFit.git``` 
-- in terminal run following commands:
-  - ```cd HackFit```
-  - ```make```
+## Only for Windows:
+1. Install chocolatey from [here](https://chocolatey.org/install) or run the below command on powershell.
+```$ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))```
+2. Then run
+```$ choco install make```
+3. Clone the repository:
+```$ git clone https://github.com/Praveendwivedi/HackFit.git 
+$ cd HackFit
+$ make```
   - for Windows:
     - ```Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser``` 
     - ```. HFenv\Scripts\activate```
