@@ -7,7 +7,7 @@ import numpy as np
 from playsound import playsound
 # cap = cv2.VideoCapture(0)
 # success, image = cap.read()
-image = Image.open('yoga_poses\pose_3.jpg')
+image = Image.open('yoga_poses\Surya_Namaskar\pose_1.jpg')
 image1 = asarray(image)
 res1=get_skeleton(image1)
 coord1=[]
@@ -60,9 +60,9 @@ while cap.isOpened():
 
     transform = lambda x: unpad(np.dot(pad(x), A))
     m=np.abs(secondary - transform(primary)).max()
-    if m<=0.09:
-        playsound('IP_codes\ceep.wav')
-    print("Max error:", m)
+    if m<=0.05:
+        playsound('IP_codes\\beep.wav')
+    # print("Max error:", m)
     
     if cv2.waitKey(5) & 0xFF == 27:
       break
