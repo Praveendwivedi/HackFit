@@ -1,6 +1,18 @@
-# HackFit
+# Virtual Yoga Instructor
 
-## Setup Guidelines:
+* [Description](#description)
+* [Features](#features)
+* [Setup](#setup)
+
+## Description:
+The application helps in finding the correctness of a yoga posture by comparing it with an expert's yoga pose. 
+
+## Features:
+* **When the desired pose is achieved by the yoga practitioner it beeps and shows next pose.**
+* **Used affine Transformation to match two skeletons.**
+* **MediaPipe was used to get stream of images of practitioner and return the response live.**
+
+## Setup:
 
 - # Only for Windows:
   - # in powershell(run as #Administrator)
