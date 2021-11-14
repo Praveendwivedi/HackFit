@@ -1,5 +1,7 @@
 # Virtual Yoga Instructor
 
+![](hackfit.gif)
+
 * [Description](#description)
 * [Features](#features)
 * [Setup](#setup)
