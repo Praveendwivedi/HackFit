@@ -1,2 +1,5 @@
-opencv-python>=4.5
-numpy>=1.21.2
+opencv-python
+numpy
+mediapipe
+Pillow
+playsound==1.2.2
