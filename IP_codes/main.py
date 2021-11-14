@@ -11,10 +11,8 @@ from playsound import playsound
 
 
 
-# Folder which contains all the images
-# from which video is to be generated
-# os.chdir("yoga_poses")
-folder = "yoga_poses\\Surya_Namaskar"
+
+folder = "yoga_poses\\ExercisePoses"
 
 
 def load_images_from_folder(folder):
@@ -75,9 +73,6 @@ cv2.imshow('tutorial', images[cnt])
 while cap.isOpened():
     # Capture the video frame
     ret, frame = cap.read()
-    # Display the resulting frame
-    # cv2.imshow('frame', frame)
-    # cv2.imshow('tutorial', images[cnt])
     testImage = asarray(images[cnt])
     threshold=0.09
     if check_matching(frame,testImage,threshold):
