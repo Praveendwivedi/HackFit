@@ -44,7 +44,7 @@ def get_coord(l):
         coord.append([x,y])
     return coord
 def check_matching(im1,im2,threshold):
-    res1=get_skeleton(im1)
+    res1=get_skeleton(im1,True)
     l1=landmark_list(res1)
     if not l1 :
         return False

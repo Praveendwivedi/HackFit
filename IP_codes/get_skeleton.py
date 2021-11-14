@@ -4,7 +4,7 @@ mp_drawing = mp.solutions.drawing_utils
 mp_drawing_styles = mp.solutions.drawing_styles
 mp_pose = mp.solutions.pose
 import time
-def get_skeleton(image):
+def get_skeleton(image,show=False):
     with mp_pose.Pose(
     min_detection_confidence=0.5,
     min_tracking_confidence=0.5) as pose:
@@ -21,7 +21,8 @@ def get_skeleton(image):
             mp_pose.POSE_CONNECTIONS,
             landmark_drawing_spec=mp_drawing_styles.get_default_pose_landmarks_style())
         # Flip the image horizontally for a selfie-view display.
-        # cv2.imshow('MediaPipe Pose', cv2.flip(image, 1)) 
+        if show:
+          cv2.imshow('MediaPipe Pose', cv2.flip(image, 1)) 
         return results
 # For static images:
 IMAGE_FILES = []
